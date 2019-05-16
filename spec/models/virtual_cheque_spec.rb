@@ -22,6 +22,14 @@ describe VirtualCheque, type: :model do
           )
         end
       end
+
+      describe 'recipient names start with capital letters' do
+        let(:vc) { create(:virtual_cheque, recipient_name: 'taylor Swift') }
+
+        it 'saves consistently' do
+          expect(virtual_cheque.recipient_name).to eq('Taylor Swift')
+        end
+      end
     end
 
     describe 'does not save' do
