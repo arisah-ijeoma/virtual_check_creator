@@ -12,6 +12,16 @@ describe VirtualCheque, type: :model do
       it 'has valid input' do
         expect { virtual_cheque }.to change { VirtualCheque.count }.by(1)
       end
+
+      describe 'saves amount in words' do
+        let(:vc) { create(:virtual_cheque, amount: 1101.09) }
+
+        it 'has correct monetary value in words' do
+          expect(virtual_cheque.amount_in_words).to eq(
+            'One Thousand One Hundred and One dollars and Nine cents'
+          )
+        end
+      end
     end
 
     describe 'does not save' do
