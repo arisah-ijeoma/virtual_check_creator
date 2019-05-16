@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
+# Convert numbers to words
+gem 'humanize'
+
 group :development, :test do
   # debugger
   gem 'pry'
