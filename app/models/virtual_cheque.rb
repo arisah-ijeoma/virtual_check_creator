@@ -11,15 +11,12 @@ class VirtualCheque < ApplicationRecord
   private
 
   def capitalize_names
-    # 'and' has an exception for the titleize method in #add_amount_in_words
-    # we'll be using capitalize instead in case we have a recipient with 'And'
-    # as a name
-    self.recipient_name = recipient_name.split.map(&:capitalize).join(' ')
+    self.recipient_name = recipient_name.titleize
   end
 
   def add_amount_in_words
     amounts = amount.to_s.split('.').map do |d|
-      d.sub!(/^0*/, '').to_i.humanize.delete(',').titleize
+      d.sub!(/^0*/, '').to_i.humanize.delete(',').titleize.gsub('And', 'and')
     end
 
     amount_in_words = "#{amounts[0]} dollars and #{amounts[1]} cents"
