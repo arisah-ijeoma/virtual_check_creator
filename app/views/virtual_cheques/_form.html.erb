@@ -1,16 +1,25 @@
 <!-- Modal Structure -->
 <div id="modal1" class="modal">
   <div class="modal-content">
-    <div class="row">
-      <%= simple_form_for @virtual_cheque do |f| %>
-        <%= f.input :recipient_name %>
-        <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
-        <%= f.button :submit %>
-
-        <div class="modal-footer">
-          <a class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+    <%= simple_form_for @virtual_cheque do |f| %>
+      <div class="row">
+        <div class="col s12">
+          <%= f.input :recipient_name %>
         </div>
-      <% end %>
-    </div>
+        <div class="col s6">
+          <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
+        </div>
+        <div class="col s6">
+          <%= f.input :amount, as: :decimal %>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <div class="left">
+          <a href="#" class="btn waves-effect waves-teal">Cancel</a>
+        </div>
+        <%= f.button :submit, 'Generate Virtual Cheque', class: 'waves-effect waves-light' %>
+      </div>
+    <% end %>
   </div>
 </div>
