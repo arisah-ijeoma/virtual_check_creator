@@ -14,12 +14,13 @@ gem 'puma', '~> 3.11'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
+gem 'materialize-sass', '~> 1.0.0'
 
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# Use JQuery for .js assets and views
+gem 'jquery-rails'
 
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
@@ -32,6 +33,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 # Convert numbers to words
 gem 'humanize'
+
+# Form
+gem 'simple_form'
 
 group :development, :test do
   # Debugging

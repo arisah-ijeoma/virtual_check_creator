@@ -1,0 +1,16 @@
+<!-- Modal Structure -->
+<div id="modal1" class="modal">
+  <div class="modal-content">
+    <div class="row">
+      <%= simple_form_for @virtual_cheque do |f| %>
+        <%= f.input :recipient_name %>
+        <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
+        <%= f.button :submit %>
+
+        <div class="modal-footer">
+          <a class=" modal-action modal-close waves-effect waves-green btn-flat">Submit</a>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
