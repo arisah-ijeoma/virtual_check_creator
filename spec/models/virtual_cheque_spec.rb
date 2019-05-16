@@ -4,8 +4,10 @@ require 'rails_helper'
 
 describe VirtualCheque, type: :model do
   context 'creation' do
+    let(:virtual_cheque) { vc }
+
     describe 'saves successfully' do
-      let(:virtual_cheque) { create(:virtual_cheque) }
+      let(:vc) { create(:virtual_cheque) }
 
       it 'has valid input' do
         expect { virtual_cheque }.to change { VirtualCheque.count }.by(1)
@@ -13,7 +15,7 @@ describe VirtualCheque, type: :model do
     end
 
     describe 'does not save' do
-      let(:virtual_cheque) { create(:virtual_cheque, date: nil) }
+      let(:vc) { create(:virtual_cheque, date: nil) }
 
       it 'has missing input' do
         expect { virtual_cheque }.to raise_error(ActiveRecord::RecordInvalid)
