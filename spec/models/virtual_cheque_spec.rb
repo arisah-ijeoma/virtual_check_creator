@@ -8,7 +8,7 @@ describe VirtualCheque, type: :model do
       let(:virtual_cheque) { create(:virtual_cheque) }
 
       it 'has valid credentials' do
-        expect(virtual_cheque).to change { VirtualCheque.count }.by(1)
+        expect { virtual_cheque }.to change { VirtualCheque.count }.by(1)
       end
     end
   end
