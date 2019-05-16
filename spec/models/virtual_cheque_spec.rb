@@ -30,6 +30,17 @@ describe VirtualCheque, type: :model do
           expect(virtual_cheque.recipient_name).to eq('Taylor Swift And')
         end
       end
+
+      describe 'cents are two digits' do
+        let(:vc) { create(:virtual_cheque, amount: 12.345) }
+
+        it 'saves cents as two digits' do
+          expect(virtual_cheque.amount).to eq(12.35)
+          expect(virtual_cheque.amount_in_words).to eq(
+            'Twelve dollars and Thirty Five cents'
+          )
+        end
+      end
     end
 
     describe 'does not save' do
