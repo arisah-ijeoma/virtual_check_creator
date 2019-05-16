@@ -1,0 +1,2 @@
+class VirtualCheque < ApplicationRecord
+end
