@@ -34,10 +34,14 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'humanize'
 
 group :development, :test do
-  # debugger
+  # Debugging
   gem 'pry'
   gem 'pry-nav'
   gem 'pry-rails'
+
+  # Feature specs
+  gem 'capybara'
+  gem 'launchy'
 
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.8'
