@@ -4,7 +4,7 @@ require 'humanize'
 
 class VirtualCheque < ApplicationRecord
   before_save :capitalize_names
-  after_save :add_amount_in_words
+  after_create :add_amount_in_words
 
   validates :recipient_name, :amount, :date, presence: true
 
@@ -20,5 +20,6 @@ class VirtualCheque < ApplicationRecord
     end
 
     self.amount_in_words = "#{amounts[0]} dollars and #{amounts[1]} cents"
+    save
   end
 end

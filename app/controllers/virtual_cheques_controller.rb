@@ -22,6 +22,7 @@ class VirtualChequesController < ApplicationController
   end
 
   def show
+    @virtual_cheque = VirtualCheque.find_by(id: params[:id])
   end
 
   private
