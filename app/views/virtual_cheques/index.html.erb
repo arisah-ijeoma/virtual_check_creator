@@ -1,10 +1,6 @@
-<%= link_to 'New Virtual Cheque', new_virtual_cheque_path, remote: true,
-    class: 'waves-effect waves-light btn modal-trigger', data: { target: 'modal1' } %>
-
 <div id="modal1" class="modal">
  <%= render 'form' %>
 </div>
-
 
 <% if @virtual_cheques.empty? %>
   There are no virtual cheques
