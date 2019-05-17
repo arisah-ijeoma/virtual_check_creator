@@ -19,3 +19,4 @@ Due to the time constraint, there are a few features I would have liked to add b
 1. Pagination of the virtual cheque list
 1. Validation on date. I understand cheques can be antedated but there is a limit on the timeframe.
 1. User authentication and authorization
+1. A fully responsive UI
