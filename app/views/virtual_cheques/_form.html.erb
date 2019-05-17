@@ -27,22 +27,21 @@
     </div>
 
     <div class="view-elements">
-      <div class="col s12">
-        <%= @virtual_cheque.recipient_name %>
+      <div class="col s12 view-element">
+        <h5 class="title">Cheque for: <%= @virtual_cheque.recipient_name %></h5>
+      </div>
+
+      <div class="col s6" view-element>
+        <h5 class="title">Dated: <%= @virtual_cheque.date %></h5>
       </div>
 
 
-      <div class="col s6">
-        <%= @virtual_cheque.date %>
+      <div class="col s6" view-element>
+        <h5 class="title">Amount: <%= number_to_currency(@virtual_cheque.amount) %></h5>
       </div>
 
-
-      <div class="col s6">
-        <%= number_to_currency(@virtual_cheque.amount) %>
-      </div>
-
-      <div class="col s12">
-        <%= @virtual_cheque.amount_in_words %>
+      <div class="col s12 view-element">
+        <h5 class="title">Amount in words: <%= @virtual_cheque.amount_in_words %></h5>
       </div>
 
       <div class="modal-footer col s12">

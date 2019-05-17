@@ -17,4 +17,10 @@ input[type="submit"] {
 
 .view-elements {
   display: none;
+  font-size: 1.1em;
+
+  .title {
+    font-style: italic;
+    display: inline-block;
+  }
 }
