@@ -28,22 +28,26 @@ describe 'virtual cheques', type: :system, js: true do
       expect(page.all('tbody tr').count).to eq(5)
     end
 
-    scenario 'filter by recipient name' do
-      visit root_path
-      click_link('Jay', match: :first)
+    context 'filtering' do
+      def click_on_name
+        visit root_path
+        click_link('Jay', match: :first)
+      end
 
-      expect(page).to have_link('Clear filter')
-      expect(page.all('tbody tr').count).to eq(3)
+      scenario 'filter by recipient name' do
+        click_on_name
+        expect(page).to have_link('Clear filter')
+        expect(page.all('tbody tr').count).to eq(3)
+      end
+
+      scenario 'clearing filter returns full list' do
+        click_on_name
+        click_on 'Clear filter'
+        expect(page).not_to have_link('Clear filter')
+        expect(page.all('tbody tr').count).to eq(5)
+      end
     end
 
-    scenario 'clearing filter returns full list' do
-      visit root_path
-      click_link('Jay', match: :first)
-
-      click_on 'Clear filter'
-      expect(page).not_to have_link('Clear filter')
-      expect(page.all('tbody tr').count).to eq(5)
-    end
   end
 
   context 'shows virtual cheque details' do
