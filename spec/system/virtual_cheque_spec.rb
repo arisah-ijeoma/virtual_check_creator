@@ -24,7 +24,6 @@ describe 'virtual cheques', type: :system, js: true do
     let!(:virtual_cheques) { [vc1, vc2] }
 
     scenario 'view list of virtual cheques' do
-      # add more expectations
       visit root_path
       expect(page.all('tbody tr').count).to eq(5)
     end

@@ -7,6 +7,7 @@ This program runs on Ruby version 2.5.1
 To set up locally, you have to do the following:
 
 1. run `git clone https://github.com/arisah-ijeoma/virtual_cheque_creator.git`
+2. run `cd virtual_cheque_creator`
 1. run `bundle`
 1. run `rails db:create db:migrate`
 1. run `rspec`. Your tests should all be green.
