@@ -32,7 +32,7 @@ describe 'virtual cheques', type: :system, js: true do
       visit root_path
       click_link('Jay', match: :first)
 
-      expect(page).to have_content('Clear filter')
+      expect(page).to have_link('Clear filter')
       expect(page.all('tbody tr').count).to eq(3)
     end
   end
