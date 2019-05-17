@@ -25,6 +25,7 @@ class VirtualCheque < ApplicationRecord
     amn = amount.to_s.split('.')
     amn.map.with_index do |n, i|
       dollar_words = amn[1].to_i > 0 ? ' dollars and': ' dollars'
+
       # checks for unnecessary zeros and removes them
       # capitalizes all words apart from 'and'
       n.sub!(/^0*/, '').to_i > 0 && (n.to_i.humanize.delete(',').titleize.gsub('And', 'and') +

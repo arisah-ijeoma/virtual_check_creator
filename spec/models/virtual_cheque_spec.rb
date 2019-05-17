@@ -33,6 +33,14 @@ describe VirtualCheque, type: :model do
             )
           end
         end
+
+        describe 'does not have zero as a word when there are no dollars' do
+          let(:vc) { create(:virtual_cheque, amount: 0.50) }
+
+          it 'has correct monetary value in words' do
+            expect(virtual_cheque.amount_in_words).to eq('Fifty cents')
+          end
+        end
       end
 
       describe 'recipient names start with capital letters' do
