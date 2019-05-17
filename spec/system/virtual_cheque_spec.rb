@@ -35,6 +35,15 @@ describe 'virtual cheques', type: :system, js: true do
       expect(page).to have_link('Clear filter')
       expect(page.all('tbody tr').count).to eq(3)
     end
+
+    scenario 'clearing filter returns full list' do
+      visit root_path
+      click_link('Jay', match: :first)
+
+      click_on 'Clear filter'
+      expect(page).not_to have_link('Clear filter')
+      expect(page.all('tbody tr').count).to eq(5)
+    end
   end
 
   context 'shows virtual cheque details' do
