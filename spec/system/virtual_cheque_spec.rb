@@ -4,7 +4,7 @@ require 'rails_helper'
 
 describe 'virtual cheques', type: :system, js: true do
   context 'creation' do
-    scenario 'on successful creation, virtual cheque is displayed correctly' do
+    scenario 'on successful creation, virtual cheque info is displayed correctly' do
       visit root_path
       click_on 'New Virtual Cheque'
       fill_in 'Recipient name', with: 'Jay Jay'
@@ -13,20 +13,8 @@ describe 'virtual cheques', type: :system, js: true do
 
       click_on 'Generate Virtual Cheque'
 
+      expect(page.find('.modal')).to have_content('$500.05')
       expect(page.find('.modal')).to have_content('Five Hundred dollars and Five cents')
-    end
-
-    scenario 'numbers are translated to words correctly' do
-      visit root_path
-      click_on 'New Virtual Cheque'
-      fill_in 'Recipient name', with: 'Jay Jay'
-      fill_in 'Amount', with: 500.50
-      page.execute_script("$('#virtual_cheque_date').val('13/12/2019')")
-
-      click_on 'Generate Virtual Cheque'
-
-      expect(page.find('.modal')).to have_content('Five Hundred dollars and Fifty cents')
-      expect(page.find('.modal')).to have_content('$500.50')
     end
   end
 

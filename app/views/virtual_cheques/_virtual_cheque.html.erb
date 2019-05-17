@@ -1,6 +1,6 @@
 <%= tag.tr virtual_cheque do %>
   <td><%= virtual_cheque.date %></td>
   <td><%= link_to virtual_cheque.recipient_name, filter_virtual_cheques_path(recipient_name: virtual_cheque.recipient_name), remote: true %></td>
-  <td><%= virtual_cheque.amount %></td>
+  <td><%= number_to_currency(virtual_cheque.amount) %></td>
   <td><%= link_to 'View virtual cheque', virtual_cheque_path(virtual_cheque), remote: true %></td>
 <% end %>
