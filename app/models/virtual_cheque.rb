@@ -3,7 +3,7 @@
 require 'humanize'
 
 class VirtualCheque < ApplicationRecord
-  before_save :capitalize_names
+  before_create :capitalize_names
   after_create :update_amount_in_words
 
   validates :recipient_name, :amount, :date, presence: true
