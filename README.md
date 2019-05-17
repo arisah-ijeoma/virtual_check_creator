@@ -20,6 +20,7 @@ To set up locally, you have to do the following:
 Due to the time constraint, there are a few features I would have liked to add but could not. These include:
 
 1. Pagination of the virtual cheque list
+1. Materialize datepicker is buggy
 1. Validation on date. I understand cheques can be antedated but there is a limit on the timeframe.
 1. User authentication and authorization
 1. A fully responsive UI

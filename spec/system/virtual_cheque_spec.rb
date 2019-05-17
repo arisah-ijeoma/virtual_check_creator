@@ -31,7 +31,7 @@ describe 'virtual cheques', type: :system, js: true do
     context 'filtering' do
       def click_on_name
         visit root_path
-        click_link('Jay', match: :first)
+        click_on('Jay', match: :first)
       end
 
       scenario 'filter by recipient name' do
