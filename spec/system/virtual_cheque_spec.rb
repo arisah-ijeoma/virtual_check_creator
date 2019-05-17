@@ -31,7 +31,7 @@ describe 'virtual cheques', type: :system, js: true do
     context 'filtering' do
       def click_on_name
         visit root_path
-        click_on('Jay', match: :first)
+        page.first("a[href='/virtual_cheques/filter?recipient_name=#{vc2.first.recipient_name}']").click
       end
 
       scenario 'filter by recipient name' do
@@ -47,7 +47,6 @@ describe 'virtual cheques', type: :system, js: true do
         expect(page.all('tbody tr').count).to eq(5)
       end
     end
-
   end
 
   context 'shows virtual cheque details' do
