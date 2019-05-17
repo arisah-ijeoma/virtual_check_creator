@@ -2,7 +2,9 @@
 
 This is a simple program that allows you create a virtual cheque by adding a recipient's name, date and amount.
 
-This program runs on Ruby version 2.5.1
+The program runs on Ruby version 2.5.1
+
+The program assumes you have `chromedriver` installed in order to run js tests.
 
 To set up locally, you have to do the following:
 
