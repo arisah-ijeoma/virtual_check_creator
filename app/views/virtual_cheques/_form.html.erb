@@ -1,25 +1,36 @@
-<!-- Modal Structure -->
-<div id="modal1" class="modal">
-  <div class="modal-content">
-    <%= simple_form_for @virtual_cheque do |f| %>
-      <div class="row">
-        <div class="col s12">
-          <%= f.input :recipient_name %>
-        </div>
-        <div class="col s6">
-          <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
-        </div>
-        <div class="col s6">
-          <%= f.input :amount, as: :decimal %>
-        </div>
-      </div>
+<%= simple_form_for @virtual_cheque, remote: true do |f| %>
+  <div class="row">
+    <div class="col s12 form-element">
+      <%= f.input :recipient_name %>
+    </div>
+    <div class="col s12 view-element">
+      <%= @virtual_cheque.recipient_name %>
+    </div>
 
-      <div class="modal-footer">
-        <div class="left">
-          <a href="#" class="btn waves-effect waves-teal">Cancel</a>
-        </div>
-        <%= f.button :submit, 'Generate Virtual Cheque', class: 'waves-effect waves-light' %>
-      </div>
-    <% end %>
+    <div class="col s6 form-element">
+      <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
+    </div>
+    <div class="col s6 view-element">
+      <%= @virtual_cheque.date %>
+    </div>
+
+    <div class="col s6 form-element">
+      <%= f.input :amount, as: :decimal %>
+    </div>
+    <div class="col s6 view-element">
+      <%= @virtual_cheque.amount %>
+    </div>
+
+    <div class="col s12 view-element">
+      <%= @virtual_cheque.amount_in_words %>
+    </div>
   </div>
-</div>
+
+  <div class="modal-footer">
+    <div class="left">
+      <a href="#" class="btn waves-effect waves-teal">Cancel</a>
+    </div>
+    <%= f.button :submit, 'Generate Virtual Cheque', remote: true,
+        class: 'waves-effect waves-light', id: 'create_virtual_cheque' %>
+  </div>
+<% end %>

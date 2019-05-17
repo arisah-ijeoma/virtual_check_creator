@@ -1,3 +1,19 @@
 <!-- Modal Trigger -->
-<button class="waves-effect waves-light btn modal-trigger" data-target="modal1">New Virtual Cheque</button>
-<%= render 'form' %>
+<%= link_to 'New Virtual Cheque', new_virtual_cheque_path, remote: true,
+    class: 'waves-effect waves-light btn modal-trigger', data: { target: 'modal1' } %>
+
+
+<div id="modal1" class="modal">
+ <%= render 'form' %>
+</div>
+
+
+
+
+
+
+<!--bug on clicking new-->
+<!--rerender form with error-->
+<!--switching between form and persisted object, js-->
+<!--populate table while displaying newly created virtual cheque-->
+<!--filter unobstructively-->
