@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 describe 'virtual cheques', type: :system do
-  xcontext 'creation' do
+  context 'creation' do
     scenario 'on successful creation, virtual cheque is displayed', js: true do
       visit root_path
       click_on 'New Virtual Cheque'

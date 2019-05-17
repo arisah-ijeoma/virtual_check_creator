@@ -46,6 +46,7 @@ group :development, :test do
   # Feature specs
   gem 'capybara'
   gem 'launchy'
+  gem 'selenium-webdriver'
 
   gem 'factory_bot_rails'
   gem 'rspec-rails', '~> 3.8'
