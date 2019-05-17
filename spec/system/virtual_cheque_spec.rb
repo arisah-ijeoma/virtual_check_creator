@@ -18,12 +18,22 @@ describe 'virtual cheques', type: :system, js: true do
   end
 
   context 'virtual cheques' do
-    let!(:virtual_cheques) { create_list(:virtual_cheque, 5) }
+    let!(:vc1) { create_list(:virtual_cheque, 2) }
+    let!(:vc2) { create_list(:virtual_cheque, 3, recipient_name: 'Jay') }
+    let!(:virtual_cheques) { [vc1, vc2] }
 
     scenario 'view list of virtual cheques' do
       # add more expectations
       visit root_path
       expect(page.all('tbody tr').count).to eq(5)
+    end
+
+    scenario 'filter by recipient name' do
+      visit root_path
+      click_link('Jay', match: :first)
+
+      expect(page).to have_content('Clear filter')
+      expect(page.all('tbody tr').count).to eq(3)
     end
   end
 
@@ -34,7 +44,6 @@ describe 'virtual cheques', type: :system, js: true do
       visit root_path
       page.find("a[href='/virtual_cheques/#{virtual_cheque.id}']").click
 
-      save_and_open_page
       within "#edit_virtual_cheque_#{virtual_cheque.id}" do
         expect(page).to have_content('Three Hundred dollars')
       end
