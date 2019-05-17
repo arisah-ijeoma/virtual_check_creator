@@ -13,13 +13,25 @@ describe VirtualCheque, type: :model do
         expect { virtual_cheque }.to change { VirtualCheque.count }.by(1)
       end
 
-      describe 'saves amount in words' do
-        let(:vc) { create(:virtual_cheque, amount: 1101.09) }
+      context 'saves amount in words' do
+        describe 'does not add zero in front of cents' do
+          let(:vc) { create(:virtual_cheque, amount: 1101.09) }
 
-        it 'has correct monetary value in words' do
-          expect(virtual_cheque.amount_in_words).to eq(
-            'One Thousand One Hundred and One dollars and Nine cents'
-          )
+          it 'has correct monetary value in words' do
+            expect(virtual_cheque.amount_in_words).to eq(
+              'One Thousand One Hundred and One dollars and Nine cents'
+            )
+          end
+        end
+
+        describe 'does not have zero as a word when there are no cents' do
+          let(:vc) { create(:virtual_cheque, amount: 245) }
+
+          it 'has correct monetary value in words' do
+            expect(virtual_cheque.amount_in_words).to eq(
+              'Two Hundred and Forty Five dollars'
+            )
+          end
         end
       end
 
