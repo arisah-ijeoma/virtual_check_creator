@@ -8,12 +8,28 @@
 </div>
 
 
+<% if @virtual_cheques.empty? %>
+  There are no virtual cheques
+<% else %>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Recipient name</th>
+        <th>Amount</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= render @virtual_cheques %>
+    </tbody>
+  </table>
+<% end %>
 
 
 
 
-<!--rerender form with error-->
 <!--switching between form and persisted object, js-->
-<!--populate table while displaying newly created virtual cheque-->
+  <!--make pretty-->
 <!--filter unobstructively-->
 <!--look into zeros in currency to words - spec-->
