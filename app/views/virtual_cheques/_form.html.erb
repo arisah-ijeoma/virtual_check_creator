@@ -16,6 +16,14 @@
       <div class="col s6">
         <%= f.input :amount, as: :decimal %>
       </div>
+
+      <div class="modal-footer col s12">
+        <div class="left">
+          <a href="#" id="cancel" class="btn waves-effect waves-teal">Cancel</a>
+        </div>
+        <%= f.button :submit, 'Generate Virtual Cheque', remote: true,
+            class: 'waves-effect waves-light', id: 'create_virtual_cheque' %>
+      </div>
     </div>
 
     <div class="view-elements">
@@ -36,14 +44,12 @@
       <div class="col s12">
         <%= @virtual_cheque.amount_in_words %>
       </div>
-    </div>
 
-    <div class="modal-footer col s12">
-      <div class="left">
-        <a href="#" id="cancel" class="btn waves-effect waves-teal">Cancel</a>
-      </div>
-      <%= f.button :submit, 'Generate Virtual Cheque', remote: true,
-          class: 'waves-effect waves-light', id: 'create_virtual_cheque' %>
+      <div class="modal-footer col s12">
+        <div class="left">
+          <a href="#" id="cancel" class="btn waves-effect waves-teal">Cancel</a>
+        </div>
+    </div>
     </div>
   </div>
 <% end %>
