@@ -1,8 +1,6 @@
 <% if @virtual_cheque.errors.present? %>
-  console.log('with errors');
   $('#modal1').html("<%= j(render 'form') %>");
 <% else %>
-  console.log('no errors');
   $('#modal1').html("<%= j(render 'form') %>");
   $('.form-element').css('display', 'none')
   $('.view-element').css('display', 'inline-block')

@@ -21,10 +21,9 @@ describe 'virtual cheques', type: :system do
     let!(:virtual_cheques) { create_list(:virtual_cheque, 5) }
 
     scenario do
+      # add more expectations
       visit root_path
-      # save_and_open_page
       expect(page.all('tbody tr').count).to eq(5)
-      # expect(page).to have_content()
     end
   end
 end
