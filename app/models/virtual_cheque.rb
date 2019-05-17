@@ -22,7 +22,7 @@ class VirtualCheque < ApplicationRecord
   end
 
   def translate_amount_to_words
-    amn = amount.to_s.split('.')
+    amn = format('%.2f', amount).split('.')
     amn.map.with_index do |n, i|
       dollar_words = amn[1].to_i > 0 ? ' dollars and': ' dollars'
 
