@@ -30,6 +30,6 @@ class VirtualCheque < ApplicationRecord
       # capitalizes all words apart from 'and'
       n.sub!(/^0*/, '').to_i > 0 && (n.to_i.humanize.delete(',').titleize.gsub('And', 'and') +
         (i == 0 ? dollar_words : ' cents')) || ''
-    end.join('')
+    end.join(' ').strip
   end
 end
