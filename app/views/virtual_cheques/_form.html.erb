@@ -1,33 +1,41 @@
 <%= simple_form_for @virtual_cheque, remote: true do |f| %>
   <div class="row">
-
     <div class="col s12">
       <%= f.error :base %>
     </div>
 
-    <div class="col s12 form-element">
-      <%= f.input :recipient_name %>
-    </div>
-    <div class="col s12 view-element">
-      <%= @virtual_cheque.recipient_name %>
+    <div class="form-elements">
+      <div class="col s12">
+        <%= f.input :recipient_name %>
+      </div>
+
+      <div class="col s6">
+        <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
+      </div>
+
+      <div class="col s6">
+        <%= f.input :amount, as: :decimal %>
+      </div>
     </div>
 
-    <div class="col s6 form-element">
-      <%= f.input :date, as: :string, input_html: { class: 'datepicker' } %>
-    </div>
-    <div class="col s6 view-element">
-      <%= @virtual_cheque.date %>
-    </div>
+    <div class="view-elements">
+      <div class="col s12">
+        <%= @virtual_cheque.recipient_name %>
+      </div>
 
-    <div class="col s6 form-element">
-      <%= f.input :amount, as: :decimal %>
-    </div>
-    <div class="col s6 view-element">
-      <%= @virtual_cheque.amount %>
-    </div>
 
-    <div class="col s12 view-element">
-      <%= @virtual_cheque.amount_in_words %>
+      <div class="col s6">
+        <%= @virtual_cheque.date %>
+      </div>
+
+
+      <div class="col s6">
+        <%= number_to_currency(@virtual_cheque.amount) %>
+      </div>
+
+      <div class="col s12">
+        <%= @virtual_cheque.amount_in_words %>
+      </div>
     </div>
   </div>
 
