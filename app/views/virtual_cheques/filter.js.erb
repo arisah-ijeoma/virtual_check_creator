@@ -1,2 +1,2 @@
 $('tbody').html("<%= j(render 'filter') %>")
-$('th:last-child').html("<%= j(link_to 'Clear filter', '#', remote: true) %>")
+$('th:last-child').html("<%= j(link_to 'Clear filter', virtual_cheques_path, remote: true) %>")
