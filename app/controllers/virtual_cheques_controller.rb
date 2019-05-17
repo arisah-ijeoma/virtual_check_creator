@@ -25,6 +25,10 @@ class VirtualChequesController < ApplicationController
     @virtual_cheque = VirtualCheque.find_by(id: params[:id])
   end
 
+  def filter
+    @virtual_cheques = VirtualCheque.filter_by_name(params[:recipient_name])
+  end
+
   private
 
   def virtual_cheque_params

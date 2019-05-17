@@ -8,6 +8,8 @@ class VirtualCheque < ApplicationRecord
 
   validates :recipient_name, :amount, :date, presence: true
 
+  scope :filter_by_name, -> (rn) { where(recipient_name: rn) }
+
   private
 
   def capitalize_names
