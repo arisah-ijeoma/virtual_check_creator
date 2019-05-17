@@ -11,14 +11,7 @@ class VirtualChequesController < ApplicationController
   end
 
   def create
-    @virtual_cheque = VirtualCheque.new(virtual_cheque_params)
-
-    if @virtual_cheque.save
-      respond_to do |format|
-        format.js {  }
-      end
-    else
-    end
+    @virtual_cheque = VirtualCheque.create(virtual_cheque_params)
   end
 
   def show
