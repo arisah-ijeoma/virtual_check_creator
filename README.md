@@ -1,24 +1,21 @@
-# README
+## Virtual Cheque Creator
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a simple program that allows you create a virtual cheque by adding a recipient's name, date and amount.
 
-Things you may want to cover:
+This program runs on Ruby version 2.5.1
 
-* Ruby version
+To set up locally, you have to do the following:
 
-* System dependencies
+1. run `git clone https://github.com/arisah-ijeoma/virtual_cheque_creator.git`
+1. run `bundle`
+1. run `rails db:create db:migrate`
+1. run `rspec`. Your tests should all be green.
+1. run `rails s` and open the program on [http://localhost:3000](http://localhost:3000)
 
-* Configuration
+### Limitations
 
-* Database creation
+Due to the time constraint, there are a few features I would have liked to add but could not. These include:
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Pagination of the virtual cheque list
+1. Validation on date. I understand cheques can be antedated but there is a limit on the timeframe.
+1. User authentication and authorization
